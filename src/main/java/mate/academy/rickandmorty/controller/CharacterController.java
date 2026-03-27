@@ -5,7 +5,6 @@ import lombok.RequiredArgsConstructor;
 import mate.academy.rickandmorty.model.CharacterEntity;
 import mate.academy.rickandmorty.service.CharacterService;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,9 +20,9 @@ public class CharacterController {
         return characterService.findAllByName(name);
     }
 
-    @GetMapping
-    public CharacterEntity findRandomCharacter(@PathVariable Long id) {
-        return characterService.getRandom(id);
+    @GetMapping("/random")
+    public CharacterEntity findRandomCharacter() {
+        return characterService.getRandom();
     }
 
 }

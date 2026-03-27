@@ -32,7 +32,7 @@ public class CharacterServiceImpl implements CharacterService {
     }
 
     @Override
-    public CharacterEntity getRandom(Long id) {
+    public CharacterEntity getRandom() {
         List<CharacterEntity> repositoryAll = characterRepository.findAll();
         return repositoryAll.get(new Random().nextInt(repositoryAll.size()));
     }

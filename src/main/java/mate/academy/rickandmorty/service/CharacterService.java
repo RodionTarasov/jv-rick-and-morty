@@ -6,6 +6,6 @@ import mate.academy.rickandmorty.model.CharacterEntity;
 public interface CharacterService {
     List<CharacterEntity> findAllByName(String name);
 
-    CharacterEntity getRandom(Long id);
+    CharacterEntity getRandom();
 
 }
