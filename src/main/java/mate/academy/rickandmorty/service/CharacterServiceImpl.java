@@ -80,7 +80,10 @@ public class CharacterServiceImpl implements CharacterService {
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
-
+        if (response.statusCode() != 200) {
+            throw new RuntimeException("API вернул статус " + response.statusCode()
+                    + " для URL: " + url);
+        }
         try {
             return objectMapper.readValue((String) response.body(), new TypeReference<>() {});
         } catch (JsonProcessingException e) {
